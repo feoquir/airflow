@@ -79,7 +79,7 @@ Now let's refactor ``create_pet_table`` in our DAG:
 Inserting data into a Postgres database table
 ---------------------------------------------
 
-Let's say we already have the SQL insert statement below in our ``dags/sql/pet_schema.sql`` file:
+Let's say we already have the SQL insert statement below in our ``dags/sql/pet_data.sql`` file:
 
 ::
 
@@ -96,7 +96,7 @@ We can then create a PostgresOperator task that populate the ``pet`` table.
   populate_pet_table = PostgresOperator(
       task_id="populate_pet_table",
       postgres_conn_id="postgres_default",
-      sql="sql/pet_schema.sql",
+      sql="sql/pet_data.sql",
   )
 
 
